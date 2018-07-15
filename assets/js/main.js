@@ -66,6 +66,9 @@ function setup_dense() {
     }
 }
 
+function counter() {
+
+}
 
 
 function setup_scrollreveal() {
@@ -99,6 +102,25 @@ function setup_scrollreveal() {
 
         sr.reveal('.a-header', header_config, default_delay);
         sr.reveal('.a-footer', footer_config, default_delay);
+        sr.reveal('.number',  {
+            afterReveal: function (domEl) {
+                console.log(domEl);
+                $(domEl).each(function(){
+
+                    $(this).prop('Counter',0).animate({
+                        Counter: $(this).data('count')
+                    }, {
+                        duration: 4000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(Math.ceil(now));
+                        }
+                    });
+                })
+
+
+            }
+        },default_config, default_delay);
 
     }
 
