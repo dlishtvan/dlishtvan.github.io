@@ -104,7 +104,6 @@ function setup_scrollreveal() {
         sr.reveal('.a-footer', footer_config, default_delay);
         sr.reveal('.number',  {
             afterReveal: function (domEl) {
-                console.log(domEl);
                 $(domEl).each(function(){
 
                     $(this).prop('Counter',0).animate({
